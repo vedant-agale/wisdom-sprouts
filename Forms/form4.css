@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #2d5a27, #6fb14d); /* Greenish background like screenshot */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.split-container {
+    background-color: white;
+    width: 850px;
+    height: 500px;
+    border-radius: 40px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* --- LEFT PANEL --- */
+.left-panel {
+    flex: 4;
+    background-color: #004d4d; /* Dark Teal */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    border-top-right-radius: 150px; /* The curved effect */
+    border-bottom-right-radius: 50px;
+}
+
+.left-panel h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.left-panel p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.outline-btn:hover {
+    background: white;
+    color: #004d4d;
+}
+
+/* --- RIGHT PANEL --- */
+.right-panel {
+    flex: 6;
+    padding: 60px;
+    text-align: center;
+}
+
+.right-panel h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #004d4d;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #004d4d;
+    color: white;
+}
+
+/* Divider Styling */
+.divider {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.line { flex: 1; height: 1px; background: #eee; }
+.divider span { padding: 0 10px; font-weight: bold; color: #333; }
+
+.form-info {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Inputs & Button */
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    outline: none;
+}
+
+.signup-btn {
+    background-color: #b3d100; /* Lime Green */
+    color: white;
+    border: none;
+    padding: 12px 50px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #9ab400;
+}
