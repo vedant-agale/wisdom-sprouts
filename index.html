@@ -3,32 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vedant Agale - Web Portfolio</title>
+    <title>Vedant Agale | Web Development Portfolio</title>
     <style>
-        body { font-family: 'Poppins', sans-serif; background: #f0f2f5; text-align: center; padding: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; text-decoration: none; color: #333; display: block; }
-        .card:hover { transform: translateY(-10px); background: #4285F4; color: white; }
-        .name-highlight { font-size: 1.2rem; margin-bottom: 5px; color: #04493a; }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background: #f4f7f6; color: #333; line-height: 1.6; padding-bottom: 50px; }
+
+        /* Header Section */
+        header { background: #fff; padding: 40px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        h1 { color: #1a73e8; font-size: 2.5rem; margin-bottom: 10px; }
+        .name-highlight { font-size: 1.4rem; color: #04493a; margin-bottom: 5px; }
+        .sub-text { color: #666; font-weight: 300; }
+
+        .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+        /* Section Headings */
+        h2 { text-align: left; margin: 40px 0 20px; border-left: 5px solid #4285F4; padding-left: 15px; font-size: 1.5rem; color: #444; }
+
+        /* Assignment Grid */
+        .assignment-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+        }
+
+        /* Card Design */
+        .card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            transition: all 0.3s ease; 
+            text-decoration: none; 
+            color: #333; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid transparent;
+        }
+
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1); 
+            border-color: #4285F4;
+            background: #fdfdfd;
+        }
+
+        .card h3 { font-size: 1.1rem; color: #1a73e8; }
+        .card span { font-size: 0.8rem; color: #888; margin-top: 5px; }
+
+        /* Footer */
+        footer { margin-top: 60px; font-size: 0.9rem; color: #999; }
     </style>
 </head>
 <body>
-    <h1>Wisdom Sprouts's Web Assignments</h1>
-    
-    <p class="name-highlight"><strong>Vedant Suresh Agale</strong></p>
-    <p>Computer Engineering Student | B.E. 2026</p>
-    
-    <div class="grid">
-        <a href="CSS-Position-property/assignment1.html" class="card"><h3>01. Position Property: Playground</h3></a>
-        <a href="CSS-Position-property/assignment2.html" class="card"><h3>02. Position Property: HubSpot Hero</h3></a>
-        <a href="CSS-Position-property/assignment3.html" class="card"><h3>03. Position Property: Fashion Overlap</h3></a>
-        <a href="CSS-Position-property/assignment4.html" class="card"><h3>04. Position Property: Travel Discovery</h3></a>
-        <a href="wisdom-sprouts-clone/index.html" class="card"><h3>05. Wisdom Sprouts Clone</h3></a>
+
+    <header>
+        <div class="container">
+            <h1>Wisdom Sprouts's Web Assignments</h1>
+            <p class="name-highlight"><strong>Vedant Suresh Agale</strong></p>
+        </div>
+    </header>
+
+    <div class="container">
         
-        <a href="Forms/registration.html" class="card"><h3>06. Form: Assignments</h3></a>
-        <a href="Forms/extended_form.html" class="card"><h3>07. Form: Extended</h3></a>
-        <a href="Forms/instagram_login.html" class="card"><h3>08. Form: Instagram Login</h3></a>
-        <a href="Forms/modern_split.html" class="card"><h3>09. Form: Modern Split</h3></a> 
+        <h2>01. CSS Grid Mastery</h2>
+        <div class="assignment-grid">
+            <a href="CSS-Grid/assignment1.html" class="card"><h3>3x3 Basic Grid</h3><span>100px cells with 10px gap</span></a>
+            <a href="CSS-Grid/blog_layout.html" class="card"><h3>Blog Page Layout</h3><span>Named areas: Header, Sidebar, Footer</span></a>
+            <a href="CSS-Grid/gallery.html" class="card"><h3>Responsive Fruit Gallery</h3><span>Auto-fit & minmax grid</span></a>
+            <a href="CSS-Grid/dashboard.html" class="card"><h3>Admin Dashboard</h3><span>Complex layout with Aside & Nav</span></a>
+            <a href="CSS-Grid/assignment5.html" class="card"><h3>Implicit Card Grid</h3><span>Animal Discovery with auto-fill</span></a>
+            <a href="CSS-Grid/fruit_collage.html" class="card"><h3>Fruit Collage</h3><span>Advanced spanning (Row/Col span)</span></a>
+            <a href="CSS-Grid/responsive_grid.html" class="card"><h3>Responsive Layout</h3><span>Media Queries & Grid Areas</span></a>
+            <a href="CSS-Grid/animal_grid.html" class="card"><h3>Girl's Spanning Grid</h3><span>2x2 Featured Spanning</span></a>
+        </div>
+
+        <h2>02. Professional Forms</h2>
+        <div class="assignment-grid">
+            <a href="Forms/registration.html" class="card"><h3>Basic Registration</h3><span>Validations & Labels</span></a>
+            <a href="Forms/extended_form.html" class="card"><h3>Extended Identity Form</h3><span>Multi-section UI</span></a>
+            <a href="Forms/instagram_login.html" class="card"><h3>Instagram Login Clone</h3><span>Split layout & dark theme</span></a>
+            <a href="Forms/modern_split.html" class="card"><h3>Modern Split UI</h3><span>Sign-up/Sign-in Switcher</span></a> 
+        </div>
+
+        <h2>03. CSS Positioning & Clones</h2>
+        <div class="assignment-grid">
+            <a href="CSS-Position-property/assignment1.html" class="card"><h3>Position Playground</h3><span>Static, Relative, Absolute</span></a>
+            <a href="CSS-Position-property/assignment2.html" class="card"><h3>HubSpot Hero Clone</h3><span>Overlay & Fixed Header</span></a>
+            <a href="CSS-Position-property/assignment3.html" class="card"><h3>Fashion Overlap</h3><span>Z-index & Absolute layering</span></a>
+            <a href="CSS-Position-property/assignment4.html" class="card"><h3>Travel Discovery</h3><span>Sticky nav & background effects</span></a>
+            <a href="wisdom-sprouts-clone/index.html" class="card"><h3>Wisdom Sprouts Clone</h3><span>Main Landing Page Project</span></a>
+        </div>
+
+        <footer>
+            <p>Designed with ❤️ for Web Development Practice | 2026</p>
+        </footer>
     </div>
+
 </body>
 </html>

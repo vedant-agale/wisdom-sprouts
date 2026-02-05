@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa;
+    padding: 10px;
+    font-family: sans-serif;
+}
+
+/* --- MOBILE LAYOUT (Default) --- */
+.grid-wrapper {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "nav"
+        "side"
+        "main"
+        "c1"
+        "c2"
+        "c3"
+        "foot";
+}
+
+/* --- DESKTOP LAYOUT (Min-width: 768px) --- */
+@media (min-width: 768px) {
+    .grid-wrapper {
+        grid-template-columns: 200px 1fr 1fr 1fr; /* 4 columns */
+        grid-template-rows: 60px 300px 150px 60px; /* 4 rows */
+        grid-template-areas: 
+            "nav nav nav nav"
+            "side main main main"
+            "side c1 c2 c3"
+            "foot foot foot foot";
+    }
+}
+
+/* Assigning Areas */
+.navbar { grid-area: nav; background-color: #e0fff0; }
+.sidebar { grid-area: side; background-color: #00ffff; }
+.main { grid-area: main; background-color: #e0ffff; }
+.content-1 { grid-area: c1; background-color: #98fb98; }
+.content-2 { grid-area: c2; background-color: #90ee90; }
+.content-3 { grid-area: c3; background-color: #00ff7f; }
+.footer { grid-area: foot; background-color: #00fa9a; }
+
+/* Common Styling */
+.grid-wrapper > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 1px solid #000;
+    padding: 20px;
+    color: #333;
+}
