@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -80,4 +81,88 @@ body {
     right: -50px; /* Card se thodi bahar nikal di */
     z-index: 10;
     filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.2));
+=======
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Black', sans-serif; /* Bold look ke liye */
+}
+
+body {
+    background-image: url('Media/fashion_bg.png');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fashion-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-card {
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.7); /* Glassmorphism */
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    position: relative; /* Sabse zaroori: Taaki model iske hisab se move ho */
+    padding: 60px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.top-icons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    padding: 0 40px;
+    color: #333;
+}
+
+.content h1 {
+    font-size: 3.5rem;
+    line-height: 1;
+    color: #222;
+    margin-top: 40px;
+}
+
+.highlight {
+    color: #000;
+    -webkit-text-stroke: 1px #555; /* Outline effect */
+}
+
+.shop-btn {
+    margin-top: 30px;
+    background: #ffcc00;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px #000; /* Retro shadow */
+    transition: 0.2s;
+}
+
+.shop-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px #000;
+}
+
+/* MODEL IMAGE - THE OVERLAP MAGIC */
+.model-img {
+    position: absolute;
+    height: 120%; /* Card se badi image */
+    bottom: 0;
+    right: -50px; /* Card se thodi bahar nikal di */
+    z-index: 10;
+    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.2));
+>>>>>>> 228060b ( Spotify Clone and CSS Selectors added)
 }

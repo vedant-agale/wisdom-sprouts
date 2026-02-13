@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     display: flex;
     flex-direction: column;
@@ -34,4 +35,42 @@ body {
 .box6 { background-color: #33fff3; }
 .box7 { background-color: #ffbd33; }
 .box8 { background-color: #8d33ff; }
+=======
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: grid; /* Grid enable karne ke liye */
+    grid-template-columns: repeat(3, 100px); /* 3 columns, har ek 100px */
+    grid-template-rows: repeat(3, 100px);    /* 3 rows, har ek 100px */
+    gap: 10px; /* Rows aur Columns ke beech ka space */
+    background-color: #eee;
+    padding: 10px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+/* Har box ko alag color dena */
+.box1 { background-color: #ff5733; }
+.box2 { background-color: #33ff57; }
+.box3 { background-color: #3357ff; }
+.box4 { background-color: #f333ff; }
+.box5 { background-color: #ff33a1; }
+.box6 { background-color: #33fff3; }
+.box7 { background-color: #ffbd33; }
+.box8 { background-color: #8d33ff; }
+>>>>>>> 228060b ( Spotify Clone and CSS Selectors added)
 .box9 { background-color: #33ffbd; }

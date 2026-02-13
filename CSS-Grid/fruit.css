@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -59,4 +60,67 @@ body {
 .item:hover img {
     transform: scale(1.1);
     filter: saturate(1.2);
+=======
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.collage-grid {
+    display: grid; /* Grid enable karne ke liye */
+    max-width: 800px;
+    margin: 0 auto;
+    
+    /* 3 Columns: Pehle do barabar, teesra thoda bada */
+    grid-template-columns: 1fr 1fr 1.5fr;
+    grid-template-rows: repeat(3, 200px);
+    
+    gap: 10px; /* Images ke beech ka gap */
+}
+
+.item {
+    overflow: hidden;
+    position: relative;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease; /* Hover effect ke liye transition */
+}
+
+/* --- PLACEMENT LOGIC --- */
+
+/* Watermelon: Row 1 aur 2 dono cover karega (Right side) */
+.watermelon {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+}
+
+/* Grapefruit: Row 2 mein do columns cover karega */
+.grapefruit {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+/* Pineapple: Row 3 mein do columns cover karega (Bottom right) */
+.pineapple {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+}
+
+/* Hover Effect: Jab mouse image par jaye */
+.item:hover img {
+    transform: scale(1.1);
+    filter: saturate(1.2);
+>>>>>>> 228060b ( Spotify Clone and CSS Selectors added)
 }

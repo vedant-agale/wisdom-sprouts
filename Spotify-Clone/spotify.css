@@ -1,0 +1,80 @@
+/* Custom Colors */
+:root {
+    --bg-grey: #121212;
+    --card-bg: #181818;
+    --card-hover: #282828;
+    --spotify-green: #1ed760;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Sidebar & Cards Layout */
+.bg-dark-grey { background-color: var(--bg-grey); }
+.library-section { height: calc(100vh - 180px); display: flex; flex-direction: column; }
+.promo-card { background-color: #242424; border-radius: 10px; }
+
+/* Main Content Area Styling */
+.main-view {
+    background: linear-gradient(180deg, #222 0%, #121212 25%);
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.main-nav { background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); }
+
+/* VERTICAL LINE */
+.v-divider {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* REALISTIC SONG CARD */
+.spotify-card {
+    background-color: var(--card-bg);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.spotify-card:hover {
+    background-color: var(--card-hover);
+}
+
+/* Play Button Animation Logic */
+.play-btn {
+    width: 48px;
+    height: 48px;
+    background-color: var(--spotify-green);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    color: black;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    opacity: 0; /* Hidden by default */
+    transform: translateY(10px); /* Shifted down */
+    transition: 0.3s ease;
+}
+
+.spotify-card:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0); /* Slides up on hover */
+}
+
+/* Footer Banner */
+.spotify-banner {
+    background: linear-gradient(90deg, #af2896, #509bf5);
+    height: 80px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 10px; }
