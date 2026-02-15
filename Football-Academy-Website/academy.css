@@ -1,0 +1,397 @@
+/* 1. RESET & BASIC SETUP */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- IMPORTANT FIX: Ye page ko left-right hilne se rokega --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden; 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e6e6e6;
+}
+
+/* --- THE MAGIC FIX: Ye saare content ko Center mein layega --- */
+/* Jis jis section mein "container" class hai, wo ab chipkega nahi */
+.container {
+    width: 85%;        /* Screen ka 85% hissa use karega */
+    max-width: 1200px; /* Laptop par zyada failne se rokega */
+    margin: 0 auto;    /* Left-Right barabar gap dekar Center karega */
+}
+
+/* 2. HERO SECTION */
+.hero-section {
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 30px 5%; /* Navbar container ke bahar hai isliye padding di */
+    position: relative;
+    min-height: 100px;
+}
+
+/* Logo Box */
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 140px; /* Text ko logo se door kiya */
+}
+
+.logo-img {
+    width: 140px;
+    height: auto;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: white; }
+
+/* Hero Text */
+.hero-content {
+    padding-left: 5%;
+    margin-top: 80px;
+}
+
+.hero-content h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 6rem;
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.highlight-red { color: #c90a28; }
+
+/* 3. ABOUT SECTION */
+.about-section {
+    padding: 50px 0;
+    /* Width aur Margin hata diya kyunki ab .container sambhal raha hai */
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: -50px;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+/* --- SECTION TITLE (Red Line & Gap Fix) --- */
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: #111;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    
+    /* Fixed Gap Here */
+    border-left: 8px solid #c90a28;
+    padding-left: 25px; /* Thoda gap badhaya taaki chipke nahi */
+}
+
+.text-box p {
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* 4. BLACK BANNER */
+.banner-section {
+    background-color: black;
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.banner-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.register-link {
+    font-family: 'Oswald', sans-serif;
+    color: #888;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-bottom: 2px solid #888;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.register-link:hover {
+    color: white;
+    border-color: white;
+}
+
+/* 5. COACHES */
+.coaches-section {
+    padding: 100px 0;
+    background-color: #e6e6e6;
+}
+
+/* Container already handles centering, bas flexbox chahiye */
+.coach-card {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+    /* Width hata di taaki container ke hisaab se chale */
+}
+
+.coach-img-box img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.coach-header {
+    border-left: 6px solid #d90429;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.coach-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.coach-header .role {
+    font-family: 'Oswald', sans-serif;
+    color: #d90429;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* 6. PLAYER OF THE WEEK */
+.player-section {
+    background-color: #b92b27;
+    color: white;
+    padding-top: 60px;
+    padding-bottom: 80px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    margin-bottom: 0;
+}
+
+.flex-player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Padding hata di kyunki container sambhal lega */
+    overflow: visible; 
+}
+
+.sub-heading {
+    font-family: 'Oswald', sans-serif;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.player-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.stats-box { display: flex; gap: 40px; }
+.stat-number { font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #3498db; font-weight: bold; display: block; }
+.stat-label { font-family: 'Oswald', sans-serif; color: #7c1c19; font-size: 1.2rem; font-weight: bold; }
+
+.player-visual { position: relative; z-index: 10; }
+.player-visual img {
+    width: 900px;
+    height: auto;
+    margin-right: -100px;
+    margin-bottom: -150px;
+    filter: drop-shadow(15px 15px 25px rgba(0,0,0,0.5));
+}
+
+/* 7. GALLERY */
+.gallery-section {
+    background-color: #e6e6e6;
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+.gallery-header {
+    border-left: 6px solid #b92b27;
+    padding-left: 20px;
+    margin-bottom: 50px;
+}
+
+.gallery-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.gallery-3d-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.side-img {
+    width: 300px; height: 200px; object-fit: cover; opacity: 0.7; transform: scale(0.9); z-index: 1;
+}
+
+.center-img {
+    width: 400px; height: 280px; object-fit: cover; z-index: 10;
+    transform: scale(1.2); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-radius: 5px; margin: 0 -30px;
+}
+
+.nav-arrows { text-align: center; font-size: 2.5rem; font-family: 'Oswald', sans-serif; margin-bottom: 40px; cursor: pointer; }
+.arrow-icon { margin: 0 30px; }
+
+.gallery-footer-text { display: flex; gap: 60px; border-top: 1px solid #ccc; padding-top: 30px; }
+.gallery-footer-text p { flex: 1; color: #666; line-height: 1.6; font-size: 0.9rem; }
+
+/* 8. JOIN TEAM SECTION */
+.join-section {
+    background-color: #f0f0f0;
+    padding: 100px 0;
+    overflow: hidden; 
+    position: relative;
+}
+
+/* Alignment Fix: .container class automatically handles this now */
+.join-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.form-box { flex: 1; max-width: 500px; }
+.team-form { display: flex; flex-direction: column; gap: 20px; }
+
+.pill-input {
+    width: 100%; padding: 15px 30px; border-radius: 50px;
+    border: 1px solid #ccc; background-color: #e0e0e0;
+    font-family: 'Poppins', sans-serif; outline: none;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05); transition: 0.3s;
+}
+.pill-input:focus { background-color: white; border-color: #d90429; }
+
+.visual-box {
+    flex: 1; position: relative; height: 400px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+.speed-trail-image-box {
+    position: absolute; right: -150px; top: 50%; transform: translateY(-50%);
+    width: 700px; height: 500px;
+    background-image: url('images/speed-trail.png');
+    background-size: cover; background-position: center;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    z-index: 1; opacity: 0.9;
+}
+
+.flying-ball { width: 280px; z-index: 2; filter: drop-shadow(-10px 10px 20px rgba(0,0,0,0.3)); margin-bottom: 30px; }
+
+.action-links { z-index: 2; font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: bold; }
+.action-links a { text-decoration: underline; color: #d90429; margin: 0 10px; }
+.separator { color: #d90429; font-weight: bold; }
+
+/* 9. FINAL FOOTER */
+.final-footer {
+    background-color: black;
+    color: white;
+    padding: 80px 0 30px 0;
+    width: 100%;
+}
+
+/* Footer Content Alignment Fix */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 60px;
+    /* .container class handles the side margins/padding automatically */
+}
+
+.footer-cta h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+.footer-cta .highlight-red { color: #d90429; }
+
+.footer-nav {
+    list-style: none; text-align: center;
+    display: flex; flex-direction: column; gap: 15px;
+}
+.footer-nav a { text-decoration: none; color: #888; font-family: 'Oswald', sans-serif; font-size: 1.1rem; letter-spacing: 1px; transition: 0.3s; }
+.footer-nav a:hover { color: white; }
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.footer-social a {
+    color: black; background: white; width: 45px; height: 45px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; text-decoration: none; transition: 0.3s;
+}
+.footer-social a:hover { background: #d90429; color: white; }
+
+.copyright-text { text-align: center; color: #4a1210; font-family: 'Oswald', sans-serif; font-size: 0.9rem; margin-top: 20px; }
