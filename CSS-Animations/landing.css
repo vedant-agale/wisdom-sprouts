@@ -1,0 +1,60 @@
+/* 1. Universal Reset & Background Gradient */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Background Gradient */
+    background: linear-gradient(135deg, #1e3a8a, #000000);
+    color: white;
+    overflow: hidden;
+}
+
+/* 2. Animated Heading (The Floating Effect) */
+.animated-heading {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    /* Animation implementation */
+    animation: floatTitle 3s ease-in-out infinite;
+}
+
+@keyframes floatTitle {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); } /* Upar jayega */
+    100% { transform: translateY(0); }
+}
+
+.sub-text {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+/* 3. Call-to-Action Button with Transitions */
+.cta-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #1db954, #19a44c); /* Spotify vibe */
+    color: white;
+    cursor: pointer;
+    /* Transition for smoothness */
+    transition: all 0.4s ease;
+}
+
+/* Hover Animation */
+.cta-btn:hover {
+    transform: scale(1.1) rotate(2deg); /* Bada hoga aur thoda mudega */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    background: #1fdf64;
+}
