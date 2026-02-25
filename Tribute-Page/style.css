@@ -14,8 +14,8 @@ h1, h2, h3, h4 {
 /* Hero Banner Styling */
 .hero-banner {
     position: relative;
-    /* Use a cricket stadium or textured background here */
-    background: url(/Tribute-Page/images/cricket-stadium.png) center/cover no-repeat;
+    /* FIX: Removed the leading slash from the image path */
+    background: url('images/cricket-stadium.png') center/cover no-repeat;
     height: 400px; /* Badi height jaisa reference mein hai */
     border-top: 2px solid #ddd;
     border-bottom: 2px solid #ddd;
