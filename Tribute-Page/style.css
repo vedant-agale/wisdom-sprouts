@@ -1,0 +1,74 @@
+/* General Font Setup */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fcfcfc;
+}
+
+/* Typography matching the classic tribute feel */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Hero Banner Styling */
+.hero-banner {
+    position: relative;
+    /* Use a cricket stadium or textured background here */
+    background: url(/Tribute-Page/images/cricket-stadium.png) center/cover no-repeat;
+    height: 400px; /* Badi height jaisa reference mein hai */
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+}
+
+.hero-banner .overlay {
+    background: rgba(255, 255, 255, 0.7); /* Light overlay so dark text is visible */
+    width: 100%;
+    height: 100%;
+}
+
+/* Profile Picture Box (Overlapping Effect) */
+.profile-box {
+    display: inline-block;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    background: white;
+    padding: 5px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    /* Reference image is square, so we keep it square, no border-radius */
+}
+
+/* Nav Tabs Customization */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #555;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #0d6efd;
+    border: none;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd !important;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid #0d6efd; /* Sirf niche line aayegi active tab par */
+}
+
+/* Footer Links hover */
+.footer-links a:hover {
+    color: #0d6efd !important;
+}
