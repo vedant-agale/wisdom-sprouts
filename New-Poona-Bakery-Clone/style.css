@@ -1,0 +1,189 @@
+/* --- BASE STYLES --- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffffff; /* Mam's background color maintained */
+}
+
+/* --- NAVBAR (Match image_27db59.jpg) --- */
+.Navbar {
+    background-color: #ffffff; /* White navbar */
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1000;
+    /* Screenshot wali gap: Navbar aur Slider ke beech thoda space */
+    margin-bottom: 10px; 
+}
+
+.navLists {
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+.navLink {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #d32f2f; /* Original Red */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navLink:hover {
+    color: #ffa600; /* Yellow hover */
+}
+
+.borderRight {
+    width: 1px;
+    height: 30px;
+    background-color: #e0e0e0;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+/* --- HERO SECTION / CAROUSEL CONTAINER --- */
+#bakeryHero {
+    position: relative;
+    overflow: hidden;
+    /* Screenshot wali Lines: Slider ke upar aur niche brown borders */
+    border-top: 2px solid #4a2c2c; 
+    border-bottom: 2px solid #4a2c2c;
+}
+
+/* --- THE "JALI" TEXTURE (Grid Overlay) --- */
+/* Ye code images ke upar wo brown jali effect dalega jo tune notice kiya tha */
+.carousel-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Tiny Brown Grid Pattern */
+    background-image: 
+        linear-gradient(0deg, rgba(74, 44, 44, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74, 44, 44, 0.12) 1px, transparent 1px);
+    background-size: 3px 3px; /* Jali ka barik size */
+    z-index: 2; /* Image ke upar par text ke niche */
+    pointer-events: none;
+}
+
+.banner-height {
+    height: 75vh;
+    object-fit: cover;
+    position: relative;
+    z-index: 1; /* Texture ke niche */
+}
+
+/* --- CAROUSEL CAPTION BOXES --- */
+.carousel-caption {
+    z-index: 10; /* Texture se upar rehne ke liye */
+    left: 10% !important;
+    bottom: 20% !important;
+    text-align: left;
+}
+
+.caption-box-red {
+    display: inline-block;
+    background-color: #ba1c22;
+    color: white;
+    font-size: 2.8rem;
+    padding: 10px 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    opacity: 0; /* Animation se pehle hidden */
+}
+
+.caption-box-yellow {
+    display: table;
+    background-color: #fca311;
+    color: #333;
+    font-size: 1.6rem;
+    padding: 5px 25px;
+    font-weight: 500;
+    opacity: 0; /* Animation se pehle hidden */
+}
+
+/* --- SLIDE BUTTONS (Show on Hover) --- */
+.carousel-control-prev, 
+.carousel-control-next {
+    opacity: 0 !important;
+    transition: all 0.4s ease;
+    z-index: 20;
+}
+
+#bakeryHero:hover .carousel-control-prev, 
+#bakeryHero:hover .carousel-control-next {
+    opacity: 1 !important;
+}
+
+.carousel-control-next-icon, 
+.carousel-control-prev-icon {
+    background-color: #ba1c22; /* Red background for arrows */
+    padding: 25px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.carousel-control-next:hover .carousel-control-next-icon,
+.carousel-control-prev:hover .carousel-control-prev-icon {
+    transform: scale(1.1);
+    background-color: #ffa600;
+}
+
+/* --- TEXT ANIMATION LOGIC --- */
+.carousel-item.active .caption-box-red {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.carousel-item.active .caption-box-yellow {
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- PRODUCT CARDS (Mam's Logic) --- */
+.product-card {
+    position: relative;
+    border: 3px solid #000;
+    padding: 10px;
+    background: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.product-card:hover img {
+    opacity: 0.4;
+}
+
+.prodNameOnHover {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    background-color: #ffa600;
+    width: 90%;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.product-card:hover .prodNameOnHover {
+    display: block;
+}
