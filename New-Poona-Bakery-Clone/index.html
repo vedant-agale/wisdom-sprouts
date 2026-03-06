@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
@@ -35,73 +36,339 @@
     </nav>
 
     <div id="bakeryHero" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="2"></button>
-        <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="3"></button>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#bakeryHero" data-bs-slide-to="3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img src="./assets/slide1.jpg" class="d-block w-100 banner-height" alt="Slider 1">
+                <div class="carousel-caption d-none d-md-block text-start pb-5">
+                    <div class="caption-box-red">With you in</div><br>
+                    <div class="caption-box-yellow">every moment of life</div>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="./assets/slide2.jpg" class="d-block w-100 banner-height" alt="Slider 2">
+                <div class="carousel-caption d-none d-md-block text-start pb-5">
+                    <div class="caption-box-red">Serving you</div><br>
+                    <div class="caption-box-red mt-1">since 1959.</div>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="./assets/slide3.jpg" class="d-block w-100 banner-height" alt="Slider 3">
+                <div class="carousel-caption d-none d-md-block text-start pb-5">
+                    <div class="caption-box-red">With you in</div><br>
+                    <div class="caption-box-yellow">every moment of life</div>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="./assets/slide4.jpg" class="d-block w-100 banner-height" alt="Slider 4">
+                <div class="carousel-caption d-none d-md-block text-start pb-5">
+                    <div class="caption-box-red">Not just cakes,</div><br>
+                    <div class="caption-box-yellow">but over 200 different products.</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#bakeryHero" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon rounded-circle border p-3"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bakeryHero" data-bs-slide="next">
+            <span class="carousel-control-next-icon rounded-circle border p-3"></span>
+        </button>
     </div>
 
-    <div class="carousel-inner">
-        
-        <div class="carousel-item active" data-bs-interval="4000">
-            <img src="./assets/slide1.jpg" class="d-block w-100 banner-height" alt="Slider 1">
-            <div class="carousel-caption d-none d-md-block text-start pb-5">
-                <div class="caption-box-red" data-aos="fade-right">With you in</div><br>
-                <div class="caption-box-yellow" data-aos="fade-right" data-aos-delay="300">every moment of life</div>
-            </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="4000">
-            <img src="./assets/slide2.jpg" class="d-block w-100 banner-height" alt="Slider 2">
-            <div class="carousel-caption d-none d-md-block text-start pb-5">
-                <div class="caption-box-red" data-aos="fade-up">Serving you</div><br>
-                <div class="caption-box-red mt-1" data-aos="fade-up" data-aos-delay="300">since 1959.</div>
-            </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="4000">
-            <img src="./assets/slide3.jpg" class="d-block w-100 banner-height" alt="Slider 3">
-            <div class="carousel-caption d-none d-md-block text-start pb-5">
-                <div class="caption-box-red" data-aos="zoom-in">With you in</div><br>
-                <div class="caption-box-yellow" data-aos="zoom-in" data-aos-delay="300">every moment of life</div>
-            </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="4000">
-            <img src="./assets/slide4.jpg" class="d-block w-100 banner-height" alt="Slider 4">
-            <div class="carousel-caption d-none d-md-block text-start pb-5">
-                <div class="caption-box-red" data-aos="fade-left">Not just cakes,</div><br>
-                <div class="caption-box-yellow" data-aos="fade-left" data-aos-delay="300">but over 200 different products.</div>
-            </div>
-        </div>
-
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#bakeryHero" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon rounded-circle border p-3"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#bakeryHero" data-bs-slide="next">
-        <span class="carousel-control-next-icon rounded-circle border p-3"></span>
-    </button>
-</div>
-
-    <section class="py-5">
+    <section class="products-section py-5">
         <div class="container text-center">
-            <h2 class="fw-bold text-uppercase mb-5" style="color: #4a332a;" data-aos="fade-up">Our Bakery Products</h2>
-            
-            <div class="row g-4 justify-content-center">
-                <div class="col-12 col-md-6 col-lg-3" data-aos="zoom-in">
+            <h2 class="section-title text-uppercase fw-bold" data-aos="fade-up">Our Bakery Products</h2>
+            <div class="title-underline mx-auto" data-aos="zoom-in"></div>
+            <p class="section-subtitle mt-3 mb-5" data-aos="fade-up">Have a look at some of our best-selling products.</p>
+
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
                     <div class="card product-card mx-auto">
-                        <img src="./assets/blackforest_cake.jpg" class="card-img-top" alt="Cake">
+                        <img src="./assets/prod1.jpg" class="card-img-top" alt="Cake">
                         <div class="prodNameOnHover">
-                            <h5 class="m-0 py-2">Blackforest Cake</h5>
+                            <h5 class="m-0 py-2">Celebration Cakes</h5>
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod2.jpg" class="card-img-top" alt="Pastries">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Pastries</h5>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod3.jpg" class="card-img-top" alt="Puffs">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Savory Puffs</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod4.jpg" class="card-img-top" alt="Rolls">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Cream Rolls</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod5.jpg" class="card-img-top" alt="Coffee">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Coffee & Cookies</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod6.jpg" class="card-img-top" alt="Toast">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Milk Toast</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod7.jpg" class="card-img-top" alt="Bread">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Fresh Breads</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card product-card mx-auto">
+                        <img src="./assets/prod8.jpg" class="card-img-top" alt="Wraps">
+                        <div class="prodNameOnHover">
+                            <h5 class="m-0 py-2">Veg Wraps</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section class="testimonial-section py-5 mt-5">
+    <div class="container">
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            <div class="testimonial-img-container">
+                                <img src="./assets/subodh.jpg" class="img-fluid" alt="Subodh Bhave">
+                                <div class="name-box">
+                                    <h6 class="m-0 fw-bold">SUBODH BHAVE,</h6>
+                                    <small>MARATHI ACTOR</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 text-dark px-lg-5">
+                            <p class="testimonial-text">
+                                “The vegetable patties (or pattice) at New Poona Bakery are arguably the best. I have been eating here since childhood, its taste is so unique - it has less oil, it's crisp and has well-cooked potatoes. Besides, its salt and chilli proportion is perfect.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            <div class="testimonial-img-container">
+                                <img src="./assets/shivaji.jpg" class="img-fluid" alt="Shivaji Gawade">
+                                <div class="name-box">
+                                    <h6 class="m-0 fw-bold">-MR. SHIVAJI GAWADE</h6>
+                                    <small>SHIVNE, PIRANGUT, PIMPLE GURAV (PUNE)</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 text-dark px-lg-5">
+                            <p class="testimonial-text">
+                                “Go ahead and gift these cuties to your loved ones this Diwali season and spread the happiness.”
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-indicators custom-dots">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section py-5 position-relative">
+    
+    <img src="./assets/rolling-pin.png" class="rolling-pin pin-left d-none d-xl-block" alt="deco">
+    <img src="./assets/rolling-pin.png" class="rolling-pin pin-right d-none d-xl-block" alt="deco">
+
+    <div class="container text-center">
+        <h2 class="section-title text-uppercase fw-bold">Main Services We Provide</h2>
+        <div class="title-underline mx-auto mb-3"></div>
+        <p class="text-muted mb-5">Our services are the best in town, we provide great quality fresh products</p>
+
+        <div class="row g-4">
+            <div class="col-md-3" data-aos="fade-up">
+                <div class="service-icon-box mx-auto mb-4">
+                    <i class="fa-solid fa-hat-chef text-danger fs-1"></i>
+                </div>
+                <h5 class="fw-bold text-uppercase small-title">Our Legacy</h5>
+                <div class="mini-underline mx-auto mb-2"></div>
+                <p class="small text-muted px-2">New Poona Bakery is born and bred in Pune city and has been serving Punekars for several decades.</p>
+            </div>
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon-box mx-auto mb-4">
+                    <i class="fa-solid fa-store text-danger fs-1"></i>
+                </div>
+                <h5 class="fw-bold text-uppercase small-title">Our Outlets</h5>
+                <div class="mini-underline mx-auto mb-2"></div>
+                <p class="small text-muted px-2">Each New Poona Bakery outlet serves a wide range of sweet and savoury products and cakes...</p>
+            </div>
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon-box mx-auto mb-4">
+                    <i class="fa-solid fa-handshake-simple text-danger fs-1"></i>
+                </div>
+                <h5 class="fw-bold text-uppercase small-title">Franchise</h5>
+                <div class="mini-underline mx-auto mb-2"></div>
+                <p class="small text-muted px-2">How to become proud FRANCHISE of New Poona Bakery?</p>
+            </div>
+
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon-box mx-auto mb-4">
+                    <i class="fa-solid fa-user-group text-danger fs-1"></i>
+                </div>
+                <h5 class="fw-bold text-uppercase small-title">Careers</h5>
+                <div class="mini-underline mx-auto mb-2"></div>
+                <p class="small text-muted px-2">Wish to make a career with New Poona Bakery? We're always looking for talented people...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="daily-life-section">
+    <div class="daily-life-overlay"></div> <div class="container text-center position-relative" style="z-index: 5;">
+        <h2 class="daily-life-heading fw-bold" data-aos="fade-up">
+            WE ARE A PART OF YOUR DAILY LIFE.
+        </h2>
+        
+        <div class="bread-img-wrapper" data-aos="zoom-in" data-aos-delay="200">
+            <img src="./assets/bread-slices.png" alt="Fresh Bread" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section class="map-wrapper-section position-relative">
+    
+    <div class="google-map-bg">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.0344739699!2d73.78056541!3d18.5248902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d431845493993!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000" 
+            width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+
+    <div class="container position-absolute top-50 start-0 translate-middle-y ms-md-5" style="z-index: 100;">
+        <div class="row">
+            <div class="col-12 col-md-5 col-lg-4">
+                <div class="contact-card-overlay p-4 shadow-lg" data-aos="fade-right">
+                    <h2 class="text-white fw-bold mb-3">CONTACT US</h2>
+                    <p class="text-white small mb-4">Have a question? <br> Write to us and we promise to get back to you.</p>
+                    
+                    <form action="#">
+                        <div class="mb-3">
+                            <input type="text" class="form-control custom-input" placeholder="Your name here">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control custom-input" placeholder="Your email here">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control custom-input" rows="4" placeholder="Your message here"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-send-brown w-100 fw-bold">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-section text-white pt-5 pb-3">
+    <div class="container">
+        <div class="row align-items-center mb-5 pb-4 border-bottom border-secondary">
+            <div class="col-lg-9 col-md-8">
+                <h4 class="fw-bold mb-3">NEW POONA BAKERY</h4>
+                <p class="footer-desc small text-secondary">
+                    New Poona Bakery is a heritage brand that serves a wide range sweet and savory delicacies. Right from fresh wholesome bread to rich velvety cakes, distinctively flaky cream rolls, buttery cookies and our star product – the Vegetable pattice; the list is endless! What started as a single outlet in Pune city, has now spread to 100+ outlets in and around Pune.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-4 text-center text-md-end">
+                <img src="./assets/logo.png" alt="NPB Logo" width="130" class="footer-logo">
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-4 text-uppercase">Follow Us</h6>
+                <div class="social-links d-flex gap-2">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-4 text-uppercase">Contact Us</h6>
+                <ul class="list-unstyled small text-secondary footer-links">
+                    <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +91 90110 89471<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 90110 89472</li>
+                    <li class="mb-2"><i class="fa-solid fa-location-arrow me-2"></i> 672/C/2, Budhwar Peth, Jogeshwari Chowk, Pune - 2.</li>
+                    <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> feedback@newpoonabakery.com</li>
+                    <li><i class="fa-solid fa-globe me-2"></i> www.newpoonabakery.com</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-4 text-uppercase">Factory</h6>
+                <ul class="list-unstyled small text-secondary footer-links">
+                    <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +91 90110 89471<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+91 90110 89472</li>
+                    <li><i class="fa-solid fa-location-arrow me-2"></i> Sr. No. 114/1/2, Bhumkar Vasti, Near IIEBM College, I.T. Park, Phase II Road, Wakad, Pune - 57.</li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-4 text-uppercase">Working Time</h6>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2">Monday - Friday: <span class="text-white fw-bold italic">10:00 am - 08:00 pm</span></li>
+                    <li>Saturday - Sunday: <span class="text-white fw-bold italic">10:00 am - 01:00 pm</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-4 border-top border-secondary">
+            <div class="col text-center">
+                <p class="copyright-text small text-secondary mb-0">
+                    2026 All rights reserved, Powered by <span class="text-warning">Vedant Agale.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top shadow">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

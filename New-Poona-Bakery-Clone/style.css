@@ -187,3 +187,311 @@ body {
 .product-card:hover .prodNameOnHover {
     display: block;
 }
+
+/* --- PRODUCTS SECTION STYLING --- */
+
+.section-title {
+    color: #4a2c2c; /* Original Brown color */
+    letter-spacing: 1px;
+}
+
+.title-underline {
+    width: 60px;
+    height: 3px;
+    background-color: #ffa600; /* Yellow line from screenshot */
+    margin-top: 5px;
+}
+
+.section-subtitle {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Card images ko portrait aspect ratio mein rakhne ke liye */
+.product-card img {
+    height: 320px; /* Screenshot ke hissab se height adjust ki hai */
+    object-fit: cover;
+}
+
+/* --- TESTIMONIAL SECTION --- */
+.testimonial-section {
+    background-color: #fca311; /* Wahi yellow background */
+    position: relative;
+    padding: 60px 0;
+}
+
+.testimonial-img-container {
+    position: relative;
+    display: inline-block;
+}
+
+.testimonial-img-container img {
+    border: 5px solid white;
+    max-height: 300px;
+}
+
+/* Red Name Box */
+.name-box {
+    position: absolute;
+    bottom: 20px;
+    right: -20px;
+    background-color: #ba1c22; /* Red color */
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+    min-width: 200px;
+}
+
+.testimonial-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Custom Radio Button Dots */
+.custom-dots {
+    justify-content: flex-end; /* Right side mein dots */
+    margin-right: 15%;
+    margin-bottom: 20px;
+}
+
+.custom-dots [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%; /* Circle shape */
+    background-color: transparent;
+    border: 2px solid #333;
+    opacity: 1;
+}
+
+.custom-dots .active {
+    background-color: #333; /* Fill color when active */
+}
+
+/* --- SERVICES SECTION STYLING --- */
+
+.service-icon-box {
+    width: 130px;
+    height: 130px;
+    border: 3px solid #ba1c22; /* Shuruat mein Red Ring */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Hamesha hollow rahega */
+    transition: all 0.4s ease; /* Smooth hover ke liye */
+    cursor: pointer;
+}
+
+/* Hover Effect: Sirf ring ka color badlega */
+.service-icon-box:hover {
+    border-color: #fca311; /* Ring turns Yellow/Golden on hover */
+    transform: translateY(-5px); /* Thoda upar uthega professional feel ke liye */
+}
+
+/* Icon Color inside the ring */
+.service-icon-box i {
+    color: #ba1c22; /* Red icon as per bakery theme */
+    transition: color 0.4s ease;
+}
+
+/* Optional: Icon bhi yellow ho jaye ring ke saath */
+.service-icon-box:hover i {
+    color: #fca311;
+}
+
+.small-title {
+    font-size: 1rem;
+    color: #4a2c2c;
+    letter-spacing: 0.5px;
+}
+
+.mini-underline {
+    width: 40px;
+    height: 2px;
+    background-color: #fca311; /* Yellow line below title */
+}
+
+.testimonial-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 80px; /* Belan ke liye thoda extra space niche */
+}
+
+.services-section {
+    margin-top: 0 !important;
+    padding-top: 40px;
+}
+
+/* --- DAILY LIFE SECTION --- */
+
+.daily-life-section {
+    position: relative;
+    padding: 100px 0 0 0; /* Niche padding 0 taaki bread overlap kare */
+    background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1920&q=80'); /* Temporary background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect ke liye */
+    min-height: 400px;
+    overflow: visible; /* Bread bahar nikalne ke liye */
+}
+
+/* Background ko fade karne wala layer */
+.daily-life-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75); /* White fade effect */
+    z-index: 1;
+}
+
+/* Heading Style */
+.daily-life-heading {
+    color: #4a2c2c; /* Same Brown color */
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+/* Bread Image Positioning */
+.bread-img-wrapper {
+    margin-bottom: -80px; /* Bread ko section se niche khichne ke liye */
+    position: relative;
+    z-index: 10;
+}
+
+.bread-img-wrapper img {
+    max-width: 500px; /* Bread ka size screenshot ke hisab se */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); /* Realistic shadow */
+}
+
+/* --- MAP & CONTACT OVERLAY STYLING --- */
+
+.map-wrapper-section {
+    height: 600px;
+    overflow: visible; /* Bread overlap ke liye */
+}
+
+.google-map-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Dark Brown Overlapping Box */
+.contact-card-overlay {
+    background-color: rgba(74, 44, 44, 0.92); /* Deep Brown with Transparency */
+    border: 5px solid rgba(255, 255, 255, 0.1); /* Subtle border like original */
+    padding: 40px !important;
+}
+
+.custom-input {
+    border-radius: 0 !important;
+    border: none !important;
+    background-color: #fff !important;
+    padding: 12px !important;
+    font-size: 0.9rem;
+}
+
+.btn-send-brown {
+    background-color: #ffffff;
+    color: #4a2c2c;
+    border-radius: 0;
+    padding: 10px;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-send-brown:hover {
+    background-color: #fca311; /* NPB Yellow on hover */
+    color: #fff;
+}
+
+/* Responsiveness: Mobile par map niche chala jaye aur form upar */
+@media (max-width: 768px) {
+    .map-wrapper-section { height: auto; display: flex; flex-direction: column; }
+    .google-map-bg { position: relative; height: 300px; order: 2; }
+    .container.position-absolute { position: relative !important; transform: none !important; top: 0 !important; order: 1; margin: 0 !important; width: 100%; }
+    .contact-card-overlay { border: none; }
+}
+/* --- FOOTER STYLING --- */
+
+.footer-section {
+    background-color: #2c2c2c; /* Screenshot wala dark gray color */
+    position: relative;
+}
+
+.footer-desc {
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.footer-logo {
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
+}
+
+/* Social Icons (Circles with borders) */
+.social-links a {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #ba1c22;
+    border-color: #ba1c22;
+    transform: translateY(-3px);
+}
+
+/* Footer Links Styling */
+.footer-links li i {
+    color: white; /* Icons color */
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: #666;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    z-index: 1000;
+    border: 2px solid #666;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #ba1c22;
+    color: white;
+    border-color: #ba1c22;
+}
+
+/* Responsive adjust */
+@media (max-width: 768px) {
+    .footer-desc { max-width: 100%; }
+    .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+}
