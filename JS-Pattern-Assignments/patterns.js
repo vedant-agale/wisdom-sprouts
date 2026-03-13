@@ -89,6 +89,34 @@ function printZigZag(n) {
     console.log("");
 }
 
+function printPascalsTriangle(n) {
+    console.log(`Task 7: Pascal's Triangle`);
+    for (let i = 1; i <= n; i++) {
+        let row = " ".repeat(n - i); // Centering ke liye spaces
+        let val = 1;
+        for (let j = 1; j <= i; j++) {
+            row += val + " ";
+            val = val * (i - j) / j; // Math logic: Combination formula
+        }
+        console.log(row);
+    }
+    console.log("");
+}
+
+function printHourglass(n) {
+    console.log(`Task 9: Hourglass Pattern`);
+    
+    // Upper Inverted Pyramid
+    for (let i = n; i >= 1; i--) {
+        console.log(" ".repeat(n - i) + "* ".repeat(i));
+    }
+    
+    // Lower Normal Pyramid (Starting from 2 because middle is common)
+    for (let i = 2; i <= n; i++) {
+        console.log(" ".repeat(n - i) + "* ".repeat(i));
+    }
+    console.log("");
+}
 // --- Sabhi patterns ko run karein ---
 printSquare(5);
 printTriangle(5);
@@ -98,3 +126,5 @@ printDiamond(5);
 printNumberPyramid(4);
 printHollowSquare(5);
 printZigZag(13);
+printPascalsTriangle(5);
+printHourglass(5);
