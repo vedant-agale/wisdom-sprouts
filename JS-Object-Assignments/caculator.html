@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Object Calculator | Vedant Agale</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calc-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+        h2 { color: #333; margin-bottom: 1.5rem; }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input:focus { border-color: #007bff; }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover { background-color: #0056b3; transform: scale(1.05); }
+        button:active { transform: scale(0.95); }
+
+        .result-box {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-card">
+        <h2>JS Calculator</h2>
+        
+        <div class="input-group">
+            <input type="number" id="num1" placeholder="Enter first number" value="45">
+            <input type="number" id="num2" placeholder="Enter second number" value="45">
+        </div>
+
+        <div class="btn-grid">
+            <button onclick="doMath('add')">Add</button>
+            <button onclick="doMath('subtract')">Subtract</button>
+            <button onclick="doMath('multiply')">Multiply</button>
+            <button onclick="doMath('divide')">Divide</button>
+        </div>
+
+        <div class="result-box" id="display">
+            Result: 90
+        </div>
+    </div>
+
+    <script>
+        // --- Assignment 4: Object Methods Logic ---
+        const calculator = {
+            add: (a, b) => a + b,
+            subtract: (a, b) => a - b,
+            multiply: (a, b) => a * b,
+            divide: (a, b) => b !== 0 ? a / b : "Error (Div by 0)"
+        };
+
+        // --- UI Interaction Logic ---
+        function doMath(operation) {
+            const n1 = parseFloat(document.getElementById('num1').value);
+            const n2 = parseFloat(document.getElementById('num2').value);
+            const display = document.getElementById('display');
+            
+            if (isNaN(n1) || isNaN(n2)) {
+                display.innerText = "Enter valid numbers!";
+                return;
+            }
+
+            let res;
+            switch(operation) {
+                case 'add': res = calculator.add(n1, n2); break;
+                case 'subtract': res = calculator.subtract(n1, n2); break;
+                case 'multiply': res = calculator.multiply(n1, n2); break;
+                case 'divide': res = calculator.divide(n1, n2); break;
+            }
+
+            display.innerText = `Result: ${res}`;
+        }
+    </script>
+</body>
+</html>
