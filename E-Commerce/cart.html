@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Basket | ApnaBazaar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">ApnaBazaar</a>
+            <a href="index.html" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-left me-1"></i>Back</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="fw-bold mb-4">Shopping Cart</h1>
+
+        <div class="table-responsive card p-3 shadow-sm border-0">
+            <table class="table align-middle">
+                <thead class="table-light">
+                    <tr><th>#</th><th>Product</th><th>Price</th><th>Quantity</th><th>Action</th></tr>
+                </thead>
+                <tbody id="cartRender1"></tbody>
+            </table>
+        </div>
+
+        <div id="amountDetails" class="mt-4"></div>
+    </div>
+
+    <script>
+        function cartRender() {
+            const cart = JSON.parse(localStorage.getItem('Cart81')) || [];
+            const renderTarget = document.getElementById('cartRender1');
+            const amountTarget = document.getElementById('amountDetails');
+
+            if (cart.length === 0) {
+                renderTarget.innerHTML = "<tr><td colspan='5' class='text-center py-4'>Bhai, cart khali hai! Kuch shopping kar lo.</td></tr>";
+                amountTarget.innerHTML = "";
+                return;
+            }
+
+            renderTarget.innerHTML = cart.map((pc, i) => `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td><b>${pc.product_name}</b></td>
+                    <td>₹${pc.product_price}</td>
+                    <td>
+                        <button class="btn btn-sm btn-success" onclick="updateQuantity(${pc.product_id}, -1)">-</button>
+                        <span class="mx-2 fw-bold">${pc.quantity_inCart}</span>
+                        <button class="btn btn-sm btn-success" onclick="updateQuantity(${pc.product_id}, 1)">+</button>
+                    </td>
+                    <td>
+                        <button class='btn btn-danger btn-sm' onclick='RemoveFromCart(${pc.id})'>
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Calculations using Mam's properties
+            const deliveryCharges = 20;
+            const totalAmtCartItem = cart.reduce((sum, p) => (p.product_price * p.quantity_inCart) + sum, 0);
+            const discountAmt = (totalAmtCartItem * 10) / 100;
+            const totalAmount = totalAmtCartItem + deliveryCharges - discountAmt;
+
+            amountTarget.innerHTML = `
+                <div class='text-end card p-4 shadow-sm border-0 bg-light'>
+                    <p class="mb-1">Subtotal : <b>₹${totalAmtCartItem}</b></p>
+                    <p class="mb-1">Delivery : <b>₹${deliveryCharges}</b></p>
+                    <p class="text-success mb-2">Discount (10%) : <b>-₹${discountAmt}</b></p>
+                    <hr>
+                    <h3 class="fw-bold">Total : ₹${totalAmount}</h3>
+                    <button class="btn btn-primary btn-lg mt-3 px-5" onclick="checkout()">Checkout</button>
+                </div>
+            `;
+        }
+
+        function updateQuantity(prod_id, change) {
+            let cart = JSON.parse(localStorage.getItem('Cart81')) || [];
+            const index = cart.findIndex(p => p.product_id == prod_id);
+            if (index !== -1) {
+                cart[index].quantity_inCart += change;
+                if (cart[index].quantity_inCart <= 0) {
+                    cart.splice(index, 1);
+                }
+                localStorage.setItem('Cart81', JSON.stringify(cart));
+                cartRender();
+            }
+        }
+
+        function RemoveFromCart(ID) {
+            let cart = JSON.parse(localStorage.getItem('Cart81')) || [];
+            const ind = cart.findIndex((p) => p.id == ID);
+            if (ind !== -1) {
+                cart.splice(ind, 1);
+                localStorage.setItem('Cart81', JSON.stringify(cart));
+                cartRender();
+            }
+        }
+
+        function checkout() {
+            alert("Order Successful!");
+            localStorage.removeItem('Cart81');
+            window.location.href = 'index.html';
+        }
+
+        // Initialize on load
+        cartRender();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
