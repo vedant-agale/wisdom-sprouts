@@ -1,98 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ApnaBazaar | E-Commerce</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApnaBazaar | Vedant's Premium Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css" />
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">ApnaBazaar</a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item">
-                        <button class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#addProduct">
-                            <i class="fas fa-plus-circle me-1"></i>Add Product
-                        </button>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="./cart.html" class="nav-link position-relative">
-                        <i class="fas fa-shopping-basket fs-4"></i>
-                        <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle" id="cartLength">0</span>
-                    </a>
-                </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ApnaBazaar</a>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addProduct">
+                    <i class="fas fa-plus me-1"></i> Add Product
+                </button>
+                <a href="cart.html" class="nav-link position-relative">
+                    <i class="fas fa-shopping-basket fs-4"></i>
+                    <span class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle" id="cartLength">0</span>
+                </a>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <div class="row align-items-center bg-light p-3 rounded shadow-sm">
-            <div class="col-md-4">
-                <input type="search" id="searchInput" class="form-control" placeholder="Search products..." oninput="filterAndSort()">
+        <div class="filters-row row g-3 align-items-center shadow-sm p-3 bg-white rounded-4">
+            <div class="col-md-6">
+                <input type="search" id="searchInput" class="form-control" placeholder="Search for gadgets..." oninput="filterProducts()">
             </div>
-            <div class="col-md-8 d-flex gap-2 justify-content-md-end mt-2 mt-md-0">
-                <select id="filterSelect" class="form-select w-auto" onchange="filterAndSort()">
+            <div class="col-md-3">
+                <select id="filterCategory" class="form-select" onchange="filterProducts()">
                     <option value="all">All Categories</option>
                     <option value="Electronics">Electronics</option>
                     <option value="Kitchen Accessories">Kitchen Accessories</option>
                 </select>
-                <select id="sortSelect" class="form-select w-auto" onchange="filterAndSort()">
+            </div>
+            <div class="col-md-3">
+                <select id="sortPrice" class="form-select" onchange="filterProducts()">
                     <option value="none">Sort By</option>
-                    <option value="lowToHigh">Price: Low to High</option>
-                    <option value="highToLow">Price: High to Low</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
                 </select>
             </div>
         </div>
     </div>
 
-    <h1 class="text-center my-4 fw-bold">Our Products</h1>
-
-    <div class="container">
-        <div class="row g-4" id="renderProducts"></div>
+    <div class="container my-5">
+        <div class="row g-4" id="renderProducts">
+            </div>
     </div>
 
     <div class="modal fade" id="addProduct" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5">Add New Product</h1>
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold">Add Premium Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-floating mb-3"><input type="text" id="title" class="form-control" placeholder="T"><label>Title</label></div>
-                    <div class="form-floating mb-3"><input type="text" id="description" class="form-control" placeholder="D"><label>Description</label></div>
+                    <div class="mb-3"><label>Product Name</label><input type="text" id="title" class="form-control"></div>
+                    <div class="mb-3"><label>Description</label><input type="text" id="description" class="form-control"></div>
                     <div class="mb-3">
-                        <label class="form-label">Category</label>
+                        <label>Category</label>
                         <select id="category" class="form-select">
                             <option value="Electronics">Electronics</option>
                             <option value="Kitchen Accessories">Kitchen Accessories</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Brand</label>
-                        <select id="brand" class="form-select">
-                            <option value="Samsung">Samsung</option>
-                            <option value="Hawkins">Hawkins</option>
-                        </select>
-                    </div>
-                    <div class="form-floating mb-3"><input type="number" id="price" class="form-control"><label>Price</label></div>
-                    <div class="form-floating mb-3"><input type="number" id="quantity" class="form-control" value="10"><label>Quantity</label></div>
+                    <div class="mb-3"><label>Price (₹)</label><input type="number" id="price" class="form-control"></div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="AddNewProduct()">Add Product</button>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-primary w-100" onclick="AddNewProduct()">Save & Post</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="./script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container">
+        <div class="newsletter-section text-center shadow-sm">
+            <h2 class="fw-bold">Stay in the Loop</h2>
+            <p class="text-muted">Get the latest gadget updates directly in your inbox.</p>
+            <div class="d-flex justify-content-center mt-4">
+                <div class="input-group mb-3" style="max-width: 500px;">
+                    <input type="text" class="form-control newsletter-input" placeholder="Enter your email">
+                    <button class="btn btn-primary px-4 rounded-3 ms-2">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-12">
+                    <a class="footer-brand mb-3 d-block" href="#">ApnaBazaar</a>
+                    <p class="text-muted small" style="max-width: 300px;">
+                        Curating the finest electronics for the next generation of engineers and creators.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="fw-bold mb-3">Shop</h6>
+                    <a href="#" class="footer-link">Electronics</a>
+                    <a href="#" class="footer-link">Accessories</a>
+                    <a href="#" class="footer-link">New Arrivals</a>
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <h6 class="fw-bold mb-3">Support</h6>
+                    <a href="#" class="footer-link">Order Status</a>
+                    <a href="#" class="footer-link">Delivery Info</a>
+                    <a href="#" class="footer-link">Contact Us</a>
+                </div>
+
+                <div class="col-lg-4 col-md-4">
+                    <h6 class="fw-bold mb-3">Goal</h6>
+                    <p class="small text-muted">Building the future, one line of code at a time.</p>
+
+                </div>
+            </div>
+
+            <div class="copyright-bar d-flex justify-content-between flex-wrap">
+                <p>© 2026 ApnaBazaar. Developed with ❤️ by Vedant Agale.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

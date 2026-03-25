@@ -1,111 +1,109 @@
-// Selections
-const titleElmt = document.querySelector('#title');
-const descriptionElmt = document.querySelector('#description');
-const categoryElmt = document.querySelector('#category');
-const brandElmt = document.querySelector('#brand');
-const priceElmt = document.querySelector('#price');
-const quantityElmt = document.querySelector('#quantity');
-const cartLengthElmt = document.getElementById('cartLength');
-const renderProductsElmt = document.querySelector('#renderProducts');
+// Selecting elements
+const renderContainer = document.querySelector('#renderProducts');
+const cartBadge = document.getElementById('cartLength');
 
 // Helpers
-const saveToLocal = (p) => localStorage.setItem('B81', JSON.stringify(p));
-const getFromLocal = () => JSON.parse(localStorage.getItem('B81')) || [];
-const saveCartToLocal = (c) => localStorage.setItem('Cart81', JSON.stringify(c));
-const getCartFromLocal = () => JSON.parse(localStorage.getItem('Cart81')) || [];
+const getProds = () => JSON.parse(localStorage.getItem('B81')) || [];
+const saveProds = (data) => localStorage.setItem('B81', JSON.stringify(data));
+const getCart = () => JSON.parse(localStorage.getItem('Cart81')) || [];
+const saveCart = (data) => localStorage.setItem('Cart81', JSON.stringify(data));
 
-// 🚀 RENDER LOGIC (Fixed naming collision)
-function renderProductsOnUI(productsToDisplay) {
-    const list = productsToDisplay || getFromLocal();
-    renderProductsElmt.innerHTML = list.map((prod) => `
-        <div class='col-12 col-md-6 col-lg-4'>
-            <div class="card h-100 shadow-sm border-0">
+// 1. Render Function
+function displayUI(customList) {
+    const list = customList || getProds();
+    
+    if (list.length === 0) {
+        renderContainer.innerHTML = `<div class="text-center mt-5"><p class="text-muted">Bhai, koi product nahi mil raha!</p></div>`;
+        return;
+    }
+
+    renderContainer.innerHTML = list.map(p => `
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
                 <div class="card-body">
-                    <h4 class="card-title fw-bold">${prod.title}</h4>
-                    <p class="text-muted small">${prod.description}</p>
-                    <p class="badge bg-light text-dark border">${prod.category}</p>
-                    <h5>Price : ₹<span>${prod.price}</span></h5>
-                    <button class="btn btn-primary w-100 mt-2" onclick="addToCart(${prod.id})">Add To Cart</button>
+                    <span class="category-badge">${p.category}</span>
+                    <h5 class="fw-bold mt-2">${p.title}</h5>
+                    <p class="text-muted small">${p.description}</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="price-tag">₹${p.price}</span>
+                        <button class="btn btn-primary btn-sm rounded-3" onclick="addToCart(${p.id})">
+                            <i class="fas fa-plus me-1"></i> Add
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     `).join('');
 }
 
-// 🚀 SEARCH & FILTER LOGIC
-function filterAndSort() {
-    let allProds = getFromLocal();
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const category = document.getElementById('filterSelect').value;
-    const sortType = document.getElementById('sortSelect').value;
-
-    // 1. Filter by Search & Category
-    let filtered = allProds.filter(p => {
-        const matchesSearch = p.title.toLowerCase().includes(searchTerm);
-        const matchesCategory = category === 'all' || p.category === category;
-        return matchesSearch && matchesCategory;
-    });
-
-    // 2. Sort by Price
-    if (sortType === 'lowToHigh') filtered.sort((a, b) => a.price - b.price);
-    if (sortType === 'highToLow') filtered.sort((a, b) => b.price - a.price);
-
-    renderProductsOnUI(filtered);
-}
-
+// 2. Add New Product
 function AddNewProduct() {
-    const newProduct = {
+    const newProd = {
         id: Date.now(),
-        title: titleElmt.value,
-        description: descriptionElmt.value,
-        category: categoryElmt.value,
-        brand: brandElmt.value,
-        price: Number(priceElmt.value),
-        quantity: Number(quantityElmt.value)
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        category: document.getElementById('category').value,
+        price: Number(document.getElementById('price').value)
     };
 
-    let getProd = getFromLocal();
-    getProd.push(newProduct);
-    saveToLocal(getProd);
-    renderProductsOnUI();
+    if(!newProd.title || !newProd.price) return alert("Pehle data bharo!");
+
+    const current = getProds();
+    current.push(newProd);
+    saveProds(current);
     
-    // Clear & Hide Modal
+    displayUI();
     bootstrap.Modal.getInstance(document.getElementById('addProduct')).hide();
+    
+    // Clear fields
+    ['title', 'description', 'price'].forEach(id => document.getElementById(id).value = '');
 }
 
-// 🚀 MAM'S UPDATED CART LOGIC
+// 3. Search & Filter
+function filterProducts() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const cat = document.getElementById('filterCategory').value;
+    const sort = document.getElementById('sortPrice').value;
+
+    let filtered = getProds().filter(p => {
+        return (p.title.toLowerCase().includes(search)) && (cat === 'all' || p.category === cat);
+    });
+
+    if(sort === 'low') filtered.sort((a,b) => a.price - b.price);
+    if(sort === 'high') filtered.sort((a,b) => b.price - a.price);
+
+    displayUI(filtered);
+}
+
+// 4. Add to Cart (Mam's Logic)
 function addToCart(id) {
-    const cart = getCartFromLocal();
-    const products = getFromLocal();
-    const targetProd = products.find(p => p.id == id);
+    const cart = getCart();
+    const products = getProds();
+    const prod = products.find(p => p.id === id);
 
-    const indexInCart = cart.findIndex(p => p.product_id == id);
-
-    if (indexInCart == -1) {
-        const newCartItem = {
+    const index = cart.findIndex(c => c.product_id === id);
+    if(index === -1) {
+        cart.push({
             id: Date.now(),
-            product_id: targetProd.id,
-            product_name: targetProd.title,
-            product_price: targetProd.price,
+            product_id: prod.id,
+            product_name: prod.title,
+            product_price: prod.price,
             quantity_inCart: 1
-        };
-        cart.push(newCartItem);
+        });
     } else {
-        cart[indexInCart].quantity_inCart += 1;
+        cart[index].quantity_inCart += 1;
     }
 
-    saveCartToLocal(cart);
-    updateCartCount();
-    alert("Added to cart!");
+    saveCart(cart);
+    updateBadge();
 }
 
-function updateCartCount() {
-    const cart = getCartFromLocal();
-    cartLengthElmt.textContent = cart.reduce((sum, item) => sum + item.quantity_inCart, 0);
+function updateBadge() {
+    const cart = getCart();
+    cartBadge.textContent = cart.reduce((total, item) => total + item.quantity_inCart, 0);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('B81')) saveToLocal([]);
-    renderProductsOnUI();
-    updateCartCount();
+    displayUI();
+    updateBadge();
 });
