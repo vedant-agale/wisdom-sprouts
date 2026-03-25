@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D OTP Verification | Vedant Agale</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-bg: #0f172a;
+            --accent-color: #3b82f6;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* 3D Glass Card Effect */
+        .otp-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            transform: perspective(1000px) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .otp-card:hover {
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        h3 { font-weight: 700; letter-spacing: 1px; }
+
+        /* 3D Inputs */
+        .otp-input {
+            width: 60px;
+            height: 70px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 0 5px;
+            box-shadow: inset 4px 4px 8px rgba(0,0,0,0.3), 
+                        inset -4px -4px 8px rgba(255,255,255,0.05);
+            transition: all 0.2s ease;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* 3D Action Button */
+        .btn-verify {
+            background: var(--accent-color);
+            border: none;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+            margin-top: 25px;
+            box-shadow: 0 8px 0 #1d4ed8;
+            transition: all 0.1s;
+        }
+
+        .btn-verify:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #1d4ed8;
+        }
+
+        /* Generated OTP Display */
+        #generatedOtpDisplay {
+            background: #1e293b;
+            padding: 10px;
+            border-radius: 10px;
+            font-family: monospace;
+            color: #fbbf24;
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .resend-link {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container d-flex flex-column align-items-center">
+        <div class="otp-card">
+            <div id="generatedOtpDisplay">OTP: <span id="otpValue">----</span></div>
+            
+            <h3 class="mb-2">Verify Account</h3>
+            <p class="text-secondary small mb-4">Enter the 4-digit code sent to your device.</p>
+
+            <div class="d-flex justify-content-center mb-4">
+                <input type="text" maxlength="1" class="otp-input" id="digit1" onkeyup="moveFocus(this, 'digit2', null)">
+                <input type="text" maxlength="1" class="otp-input" id="digit2" onkeyup="moveFocus(this, 'digit3', 'digit1')">
+                <input type="text" maxlength="1" class="otp-input" id="digit3" onkeyup="moveFocus(this, 'digit4', 'digit2')">
+                <input type="text" maxlength="1" class="otp-input" id="digit4" onkeyup="moveFocus(this, null, 'digit3')">
+            </div>
+
+            <button class="btn btn-primary w-100 btn-verify" onclick="verifyOTP()">Verify Now</button>
+            
+            <span class="resend-link" onclick="generateOTP()">Didn't get code? <b>Generate New</b></span>
+        </div>
+    </div>
+
+    <script>
+        let currentOTP = "";
+
+        // 1. Generate OTP with Stylish Display
+        function generateOTP() {
+            currentOTP = String(Math.floor(1000 + Math.random() * 9000));
+            const display = document.getElementById('generatedOtpDisplay');
+            const valueSpan = document.getElementById('otpValue');
+            
+            display.style.display = 'block';
+            valueSpan.innerText = currentOTP;
+            
+            // Clear inputs for new entry
+            document.querySelectorAll('.otp-input').forEach(input => input.value = '');
+            document.getElementById('digit1').focus();
+        }
+
+        // 2. Intelligent Focus Movement (Next & Backspace)
+        function moveFocus(current, nextId, prevId) {
+            // If user typed a digit, move forward
+            if (current.value.length >= 1 && nextId) {
+                document.getElementById(nextId).focus();
+            }
+            
+            // If user pressed Backspace (Key 8), move backward
+            current.addEventListener('keydown', (e) => {
+                if (e.keyCode === 8 && current.value.length === 0 && prevId) {
+                    document.getElementById(prevId).focus();
+                }
+            });
+        }
+
+        // 3. Verification Logic
+        function verifyOTP() {
+            let d1 = document.getElementById('digit1').value;
+            let d2 = document.getElementById('digit2').value;
+            let d3 = document.getElementById('digit3').value;
+            let d4 = document.getElementById('digit4').value;
+
+            let userOTP = d1 + d2 + d3 + d4;
+
+            if (userOTP === currentOTP && currentOTP !== "") {
+                alert("✅ Verification Successful! Welcome to Mission Google.");
+            } else {
+                alert("❌ Invalid OTP. Try again!");
+                // Shake effect logic can be added here
+            }
+        }
+
+        // Auto-generate on first load
+        window.onload = generateOTP;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
