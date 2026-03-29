@@ -1,0 +1,43 @@
+:root {
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --bg-color: #f1f5f9;
+}
+
+body.dark-theme {
+    --card-bg: #1e293b;
+    --text-color: #f1f5f9;
+    --bg-color: #0f172a;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.task-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none; align-items: center; justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content-custom {
+    background: var(--card-bg);
+    padding: 40px; border-radius: 20px; max-width: 400px; text-align: center;
+}
