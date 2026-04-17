@@ -86,3 +86,4 @@ document.body.style.justifyContent = "center";
 document.body.style.minHeight = "100vh"; // Image se thoda update kiya taaki scrolling sahi rahe
 document.body.style.fontFamily = "Arial, sans-serif";
 document.body.style.margin = "0";
+//done

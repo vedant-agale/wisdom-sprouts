@@ -1,0 +1,111 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --accent-color: #00d2ff;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f2027; /* Fallback */
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    overflow: hidden;
+}
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 2.5rem;
+    color: white;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+}
+
+.app-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.pro-tag {
+    font-size: 0.8rem;
+    background: var(--accent-color);
+    padding: 2px 8px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.custom-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: white !important;
+    border-radius: 15px 0 0 15px !important;
+    padding: 12px 20px;
+}
+
+.custom-input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.btn-search {
+    background: var(--accent-color);
+    color: white;
+    border-radius: 0 15px 15px 0;
+    padding: 0 20px;
+}
+
+/* Result Section Styling */
+.weather-main {
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.city-name {
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.temp-display {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 10px 0;
+    background: -webkit-linear-gradient(#fff, #999);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-text {
+    text-align: center;
+    opacity: 0.6;
+    padding: 40px 0;
+}
