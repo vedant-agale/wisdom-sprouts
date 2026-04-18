@@ -1,0 +1,58 @@
+:root {
+    --card-bg: #ffffff;
+    --accent-blue: #1a73e8;
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Poppins', sans-serif;
+    color: #1e293b;
+}
+
+.lab-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.lab-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Slider Custom Styles */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.slider-btn:hover { background: rgba(0, 0, 0, 0.8); }
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Display Text Styles */
+.display-time {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 12px;
+    letter-spacing: 2px;
+}
