@@ -1,0 +1,9 @@
+.customImg {
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.9);
+}
+
+@media (max-width: 768px) {
+    .customImg { height: 300px; }
+}
