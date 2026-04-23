@@ -1,0 +1,43 @@
+.classy-nav {
+  background: rgba(10, 10, 10, 0.85); /* Midnight transparency */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 1.2rem 0;
+  transition: 0.4s;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ffffff !important;
+  letter-spacing: 2px;
+}
+
+.gold-dot {
+  color: #d4af37;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-left: 25px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
