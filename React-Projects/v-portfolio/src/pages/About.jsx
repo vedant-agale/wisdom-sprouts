@@ -21,7 +21,7 @@ const About = () => {
             {/* Internship 2: HUSYS */}
             <div className="mb-5 border-start border-secondary ps-4">
               <h5 className="text-white">Internship Trainee (Java Full Stack)</h5>
-              <p className="text-gold mb-1">HUSYS, Bangalore (Remote/On-site) | Dec 2025 - Present</p>
+              <p className="text-gold mb-1">HUSYS, Bangalore (Remote) | Dec 2025 - Present</p>
               <p className="text-dim small">Developed real-time enterprise applications using Java, Spring Boot, and MySQL. Gained hands-on experience in RESTful API development and database optimization.</p>
             </div>
           </div>
