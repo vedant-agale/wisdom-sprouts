@@ -11,10 +11,10 @@ const About = () => {
           <div className="mt-5">
             <h4 className="text-gold border-bottom border-secondary pb-2 mb-4">Experience</h4>
             
-            {/* Internship 1: Scalefull Technologies */}
+            {/* Internship 1: Wisdom Sprouts */}
             <div className="mb-5 border-start border-gold ps-4">
               <h5 className="text-white">Intern Software Engineer (MERN Stack)</h5>
-              <p className="text-gold mb-1">Scalefull Technologies, Pune | Jan 2026 - Present</p>
+              <p className="text-gold mb-1">Wisdom Sprouts, Pune | Jan 2026 - Present</p>
               <p className="text-dim small">Working with the development team on scalable MERN applications, focusing on high-performance standards and corporate-academic excellence.</p>
             </div>
 
