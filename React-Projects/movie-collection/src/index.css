@@ -1,0 +1,35 @@
+/* src/index.css */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.movie-row {
+  background-color: #1e1e1e;
+  border-left: 4px solid #f5c518; /* IMDb style yellow border */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.movie-row:hover {
+  background-color: #2a2a2a;
+  transform: scale(1.01);
+}
+
+.text-gold {
+  color: #f5c518;
+}
+
+/* Custom button style */
+.btn-gold {
+  background-color: #f5c518;
+  color: #000;
+  font-weight: bold;
+}
+.btn-gold:hover {
+  background-color: #dfb212;
+  color: #000;
+}
