@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaChevronLeft, FaChevronRight, FaPlus, FaTrash, FaCheck, FaCalendarAlt } from "react-icons/fa";
@@ -105,7 +104,7 @@ function App() {
         onClick={() => setSelectedDate(cellDateStr)}
       >
         <span>{day}</span>
-        {/* 🔥 Feature: Note Highlight Dot Indicator */}
+        {/* Feature: Note Highlight Dot Indicator */}
         {hasNote && !isSelected && (
           <span 
             className="position-absolute translate-middle-x bg-danger rounded-circle"
@@ -180,7 +179,7 @@ function App() {
             <div className="task-container overflow-auto" style={{ maxHeight: '350px' }}>
               {filteredTasks.length === 0 ? (
                 <div className="text-center py-5 text-muted">
-                  <p className="m-0 fs-5">🌟 No notes for this date.</p>
+                  <p className="m-0 fs-5">No notes for this date.</p>
                   <small>Type above to save your first event!</small>
                 </div>
               ) : (
