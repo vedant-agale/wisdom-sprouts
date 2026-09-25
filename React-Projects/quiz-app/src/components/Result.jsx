@@ -28,9 +28,9 @@ export default function Result() {
 
   const getFeedbackMessage = () => {
     const ratio = finalScore / totalQuestions;
-    if (ratio === 1) return { text: "Perfect Score! Excellent Work! 🌟", color: "text-success" };
-    if (ratio >= 0.6) return { text: "Good job! Well played! 👍", color: "text-info" };
-    return { text: "Keep practicing! You can do better! 💪", color: "text-danger" };
+    if (ratio === 1) return { text: "Perfect Score! Excellent Work! ", color: "text-success" };
+    if (ratio >= 0.6) return { text: "Good job! Well played! ", color: "text-info" };
+    return { text: "Keep practicing! You can do better! ", color: "text-danger" };
   };
 
   const feedback = getFeedbackMessage();
@@ -55,7 +55,6 @@ export default function Result() {
         </button>
       </div>
 
-      {/* 🔥 Bonus Segment: Score Persistence Metrics Table */}
       {scoreHistory.length > 0 && (
         <div className="text-start border-top pt-4">
           <h5 className="fw-bold text-secondary mb-3"><FaHistory className="me-2" /> Attempt History logs:</h5>

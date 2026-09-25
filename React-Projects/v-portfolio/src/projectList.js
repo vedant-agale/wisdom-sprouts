@@ -1,17 +1,26 @@
 // src/projectList.js
 
 // Import your existing images
+import sarthiImg from './assets/sarthi.png';
 import abImage from './assets/apnabazaar.png'; 
 import weatherImg from './assets/weather-pro.png';
- import footballImg from './assets/football.png';
- import bakeryImg from './assets/poona-bakery.png';
- import spotifyImg from './assets/spotify.png';
- import tributeImg from './assets/asha-tribute.png';
- import otpImg from './assets/otp-3d.png';
+import footballImg from './assets/football.png';
+import bakeryImg from './assets/poona-bakery.png';
+import spotifyImg from './assets/spotify.png';
+import tributeImg from './assets/asha-tribute.png';
+import otpImg from './assets/otp-3d.png';
 
 export const projects = [
     {
         id: 1,
+        title: "SARTHI: Autonomous Life OS",
+        category: "Next.js & Supabase Full Stack",
+        description: "An autonomous, offline-first Progressive Web App (PWA) built with Next.js 16, TypeScript, and Supabase. Features real-time multi-device WebSocket sync, 1:1 native iOS gesture physics, automated LeetCode/GitHub API verification engines, and financial ledger management.",
+        link: "https://sarthi-app-iota.vercel.app",
+        image: sarthiImg
+    },
+    {
+        id: 2,
         title: "ApnaBazaar: E-Commerce",
         category: "Java Full Stack",
         description: "A full-scale e-commerce platform built using Java Spring Boot, React, and MySQL. Implemented REST APIs and secure authentication.",
@@ -19,7 +28,7 @@ export const projects = [
         image: abImage
     },
     {
-        id: 2,
+        id: 3,
         title: "Football Academy Website",
         category: "Frontend UI/UX",
         description: "A fully responsive, highly interactive website designed for a football academy. Features structured layouts, event sections, and modern CSS styling.",
@@ -27,7 +36,7 @@ export const projects = [
         image: footballImg
     },
     {
-        id: 3,
+        id: 4,
         title: "New Poona Bakery Clone",
         category: "Web Development",
         description: "A pixel-perfect frontend clone of a commercial bakery website. Demonstrates strong command over grid systems, flexbox, and responsive design components.",
@@ -35,7 +44,7 @@ export const projects = [
         image: bakeryImg
     },
     {
-        id: 4,
+        id: 5,
         title: "Spotify Clone",
         category: "React & Audio API",
         description: "A music streaming web application replicating Spotify's core UI. Features audio playback controls, playlist rendering, and state management.",
@@ -43,7 +52,7 @@ export const projects = [
         image: spotifyImg
     },
     {
-        id: 5,
+        id: 6,
         title: "Asha Bhosle Tribute",
         category: "Frontend Architecture",
         description: "Demonstrating modular component architecture and Bootstrap integration to create a visually appealing and structured tribute page.",
@@ -51,7 +60,7 @@ export const projects = [
         image: tributeImg
     },
     {
-        id: 6,
+        id: 7,
         title: "3D OTP Verification System",
         category: "Advanced JavaScript & UI",
         description: "Interactive 3D OTP input interface with advanced DOM manipulation, event handling, and strict data validation for a highly engaging user experience.",
@@ -59,7 +68,7 @@ export const projects = [
         image: otpImg
     },
     {
-        id: 7,
+        id: 8,
         title: "Weather Pro Dashboard",
         category: "MERN Stack / API",
         description: "Advanced weather engine using OpenWeather API. Features Glassmorphism UI, dynamic backgrounds, and responsive Bootstrap logic.",
